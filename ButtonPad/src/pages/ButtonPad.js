@@ -5,17 +5,21 @@ import {
   View
 } from 'react-native';
 import Button from '../components/Button';
-import { Test } from '../Global/functions';
+import { TestButton, TestSlider } from '../Global/functions';
 import colors from '../Global/colors'
+import Slider from '../components/Slider'
 
 
 
 const ButtonPad = () => {
   return (
     <View style={style.container}>
-      <Button color={colors.RED} func={Test} title={'Red'}/>
-      <Button color={colors.GREEN} func={Test} title={'Green'}/>
-      <Button color={colors.BLUE} func={Test} title={'Blue'}/>
+      <Button color={colors.RED} func={TestButton} title={'Red'}/>
+      <Button color={colors.GREEN} func={TestButton} title={'Green'}/>
+      <Button color={colors.BLUE} func={TestButton} title={'Blue'}/>
+      <Slider color={colors.BLUE} func={TestSlider} title={'Slider'}/>
+      <Button color={colors.BLUE} func={TestButton} title={'Blue'}/>
+     
     </View>
   );
 };

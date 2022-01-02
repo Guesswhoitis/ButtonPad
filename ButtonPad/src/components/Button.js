@@ -9,7 +9,6 @@ import {
 
 
 const Button = ({color,func,title}) => {
-    console.log(color);
   return (
     <TouchableOpacity onPress={func} style={[style.container,{borderColor:color}]}>
       <Text>
@@ -31,6 +30,6 @@ const style = StyleSheet.create({
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-        marginVertical:5
+        marginVertical:5,
     },
 });
