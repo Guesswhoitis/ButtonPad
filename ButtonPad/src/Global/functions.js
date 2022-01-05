@@ -1,8 +1,7 @@
 export function TestButton(){
-    console.log('test');
+    console.log('Button');
 }
 
 export function TestSlider(value){
-  console.log(value);
-  console.log('Test');
+  // console.log('slider'+value);
 }

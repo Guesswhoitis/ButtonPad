@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     Text,
@@ -8,14 +8,14 @@ import { Slider } from '@miblanchard/react-native-slider';
 
 
 
-const Button = ({ color, func, title }) => {
+const Button = ({ color, func, title, originalValue }) => {
 
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(originalValue);
 
     func(value);
-    
+
     return (
-        <View style={[style.container,{borderColor:color}]}>
+        <View style={[style.container, { borderColor: color }]}>
             <View style={style.slider}>
                 <Slider
                     value={value}
@@ -25,9 +25,9 @@ const Button = ({ color, func, title }) => {
                     maximumTrackTintColor='#b3b3b3'
                     minimumTrackTintColor='#3f3f3f'
                 />
-              <Text style={style.text}>{title}</Text>
+                <Text style={style.text}>{title}</Text>
             </View>
-            
+
         </View>
     );
 };
@@ -49,7 +49,7 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'column',
     },
-    text:{
-        textAlign:'center'
+    text: {
+        textAlign: 'center'
     }
 });
