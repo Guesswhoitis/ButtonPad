@@ -36,7 +36,7 @@ const ButtonPad = ({ navigation }) => {
     })
     .catch((err) => {
       console.log('File fail');
-      //fs.unlink(saveFile); //In case of mess up
+      // fs.unlink(saveFile); //In case of mess up
       fs.writeFile(saveFile, '[]', 'utf8').then().catch();
     });
      
@@ -58,7 +58,7 @@ const ButtonPad = ({ navigation }) => {
           }
 
           if (element.type === "slider") {
-            return <Slider color={colors[element.color]} func={functions[element.func]} title={element.Slider} originalValue={50} />
+            return <Slider key={element.key} color={colors[element.color]} func={functions[element.func]} title={element.title} originalValue={50} />
           }
         })}
       </View>
