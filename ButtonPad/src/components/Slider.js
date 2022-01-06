@@ -3,9 +3,12 @@ import {
     StyleSheet,
     Text,
     View,
+    LogBox
 } from 'react-native';
 import { Slider } from '@miblanchard/react-native-slider';
 import fs from 'react-native-fs'
+
+LogBox.ignoreLogs(['new NativeEventEmitter']); // to ignore new nativeEventEmmitter called with non null arguement, this is caused by react navigation library.
 
 function updateValue(id,value){
     var saveFile = fs.DocumentDirectoryPath + '/save.json';
