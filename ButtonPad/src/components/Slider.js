@@ -5,21 +5,48 @@ import {
     View,
 } from 'react-native';
 import { Slider } from '@miblanchard/react-native-slider';
+import fs from 'react-native-fs'
+
+function updateValue(id,value){
+    var saveFile = fs.DocumentDirectoryPath + '/save.json';
+    var saveJson = fs.readFile(saveFile)
+    .then((success) => {
+        let jsonArr = JSON.parse(success);
+
+        for(var i=0; i<jsonArr.length; i++){
+            if(jsonArr[i].key == id){
+                jsonArr[i].value = value;
+            }
+        }
+        
+        fs.writeFile(saveFile, JSON.stringify(jsonArr));
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
+    
+}
 
 
 
-const Button = ({ color, func, title, originalValue }) => {
+const Slide = ({id, color, func, title, originalValue }) => {
 
     const [value, setValue] = useState(originalValue);
 
-    func(value);
+   
+    
 
     return (
         <View style={[style.container, { borderColor: color }]}>
             <View style={style.slider}>
                 <Slider
                     value={value}
-                    onValueChange={value => setValue(value)}
+                    // onValueChange={value => setValue(value)}
+                    onSlidingComplete={value => {
+                        setValue(value);
+                        func(value);
+                        updateValue(id,value);
+                    }}
                     maximumValue={100}
                     minimumValue={0}
                     maximumTrackTintColor='#b3b3b3'
@@ -32,7 +59,7 @@ const Button = ({ color, func, title, originalValue }) => {
     );
 };
 
-export default Button;
+export default Slide;
 
 
 const style = StyleSheet.create({

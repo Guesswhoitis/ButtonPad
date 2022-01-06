@@ -71,21 +71,25 @@ const style = StyleSheet.create({
     button: {
         borderWidth: 1,
         borderColor: 'black',
+        padding:5
     },
     Text: {
     },
     drop_down: {
         position: 'absolute',
         top: '100%',
-        width:'100%'
+        width:'100%',
+        borderWidth:1,
+        borderColor:'black',
+        zIndex:100
     },
     drop_down_element: {
-        backgroundColor: 'rgb(0,0,0)',
+        backgroundColor: 'rgb(255,255,255)',
         width: "100%",
         zIndex: 100
 
     },
     drop_down_element_text: {
-        color: 'white'
+        color: 'black'
     }
 })

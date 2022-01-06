@@ -3,5 +3,5 @@ export function TestButton(){
 }
 
 export function TestSlider(value){
-  // console.log('slider'+value);
+   console.log('slider'+value);
 }

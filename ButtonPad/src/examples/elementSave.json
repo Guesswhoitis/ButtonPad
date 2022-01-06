@@ -4,13 +4,15 @@
         "title":"Button",
         "func": "TestButton",
         "color": "RED",
-        "value":"-1"
+        "value":"-1",
+        "key":0
     },
     {
         "type":"slider",
         "title":"Slider",
         "func": "TestSlider",
         "color": "BLUE",
-        "value":"43"
+        "value":"43",
+        "key":1
     }
 ]

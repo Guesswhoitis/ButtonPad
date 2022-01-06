@@ -21,10 +21,12 @@ const colors = {"RED":Colors.RED,"BLUE":Colors.BLUE,"GREEN":Colors.GREEN};
 const ButtonPad = ({ navigation }) => {
 
   
-
+ 
   const isFocused = useIsFocused()
   var saveFile = fs.DocumentDirectoryPath + '/save.json';
   let [saveObj, setSaveObj] = useState([]);
+  
+  
 
    useEffect(() => {
     var saveJson = fs.readFile(saveFile)
@@ -58,7 +60,7 @@ const ButtonPad = ({ navigation }) => {
           }
 
           if (element.type === "slider") {
-            return <Slider key={element.key} color={colors[element.color]} func={functions[element.func]} title={element.title} originalValue={50} />
+            return <Slider key={element.key} id={element.key} color={colors[element.color]} func={functions[element.func]} title={element.title} originalValue={element.value} />
           }
         })}
       </View>
